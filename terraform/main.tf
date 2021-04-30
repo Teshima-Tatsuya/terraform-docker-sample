@@ -1,10 +1,9 @@
 terraform {
-  required_version = ">=0.12.20"
 }
 
 provider "aws" {
-  version = ">=2.63.0"
-  region = "us-east-2"
+  region = "ap-northeast-1"
+  profile = "terraform"
 }
 
 module "network" {
