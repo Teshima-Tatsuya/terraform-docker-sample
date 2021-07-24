@@ -1,10 +1,13 @@
 version: '3.6'
 
 services:
-  terrform:
-    image: hashicorp/terraform:0.12.24
+   terraform:
     container_name: terraform
+    image: hashicorp/terraform:0.15.5
+    env_file:
+      - .env
     volumes:
       - ./terraform:/terraform
-    env_file: .env
     working_dir: /terraform
+    entrypoint: ash
+    tty: true

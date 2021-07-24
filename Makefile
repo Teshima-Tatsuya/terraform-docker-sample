@@ -1,22 +1,19 @@
 .PHONY: init plan aply destroy check
 
 init:
-	make check
-	docker-compose run --rm terraform init
+	@docker-compose run --rm terraform init
 
 plan:
-	make check
-	docker-compose run --rm terraform plan
+	@docker-compose run --rm terraform plan
 
 apply:
-	make check
-	docker-compose run --rm terraform apply
+	@docker-compose run --rm terraform apply
 
 destroy:
-	make check
-	docker-compose run --rm terraform destroy
+	@docker-compose run --rm terraform destroy
 
-check:
-	docker-compose run --rm terraform fmt -recursive
-	docker-compose run --rm terraform fmt -check
-	docker-compose run --rm terraform validatep
+validate:
+	@docker-compose run --rm terraform validate
+
+fmt:
+	@docker-compose run --rm terraform fmt /terraform
